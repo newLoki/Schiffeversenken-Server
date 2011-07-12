@@ -14,4 +14,9 @@ After this, setup your Database by executing sql scripts located in _data/sql_.
 * Implement controller to show user scores
 * Implement view to show all scores for one user
 * Implement action & model to remove score from user scores
+* Implement abstract service layer
+* Implement SOAP interface over SSL
++ Plane interfaces for using this score server with "Schiffeversenken" client
++ Generate WSDL
++ Implement service methods (not specified yet)
 
