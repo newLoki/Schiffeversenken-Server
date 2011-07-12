@@ -10,7 +10,7 @@ For <servername> you can use localhost, if you have run a development server on 
 ##Database
 Insert your connection information into _application/configs/application.ini_.
 After this, setup your Database by creating a new database (all <____> are Placeholders):
-`mysql -u <UserName> -p <Password> | CREATE DATABASE ``ships``;`
+`mysql -u <UserName> -p <Password> | CREATE DATABASE `ships`;`
 and then pipe all  sql scripts located in _data/sql_ into this new database by typing
 `mysql -u <UserName> -p <Password> < <ScriptName>`
 You can also use tools like [PhpMyAdmin](http://www.phpmyadmin.net/home_page/index.php) or
