@@ -13,8 +13,8 @@ After this, setup your Database by creating a new database (all <____> are Place
 `mysql -u <UserName> -p <Password> | CREATE DATABASE ``ships``;`
 and then pipe all  sql scripts located in _data/sql_ into this new database by typing
 `mysql -u <UserName> -p <Password> < <ScriptName>`
-You can also use tools like [PhpMyAdmin]: http://www.phpmyadmin.net/home_page/index.php or [MySQL Workbench]:
-http://www.mysql.de/products/workbench/
+You can also use tools like [PhpMyAdmin](http://www.phpmyadmin.net/home_page/index.php) or
+[MySQL Workbench](http://www.mysql.de/products/workbench/)
 
 
 #ToDo:
