@@ -7,8 +7,8 @@ After this, setup your Database by executing sql scripts located in _data/sql_.
 #ToDo:
 * Implement ACL
 * Implement Model & Entities for:
-** scores
-** userscores
++ scores
++ userscores
 * Implement controller to show score list (as index)
 * Implement view for scores as list
 * Implement controller to show user scores
