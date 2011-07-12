@@ -12,14 +12,5 @@
                      yui="true" highlight="false" lowUpperBound="60" highLowerBound="90"/>
             </logging>
         </testsuite>
-
-        <!-- Remove lines below to ignore selenium tests -->
-        <!--
-        <testsuite name="Suite for Selenium">
-                <directory>./selenium</directory>
-        </testsuite>
-        -->
-        
-
     </testsuites>
 </phpunit>

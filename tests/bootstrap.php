@@ -10,8 +10,6 @@ defined('APPLICATION_PATH') || define('APPLICATION_PATH', realpath(dirname(__FIL
 require_once 'Zend/Loader/Autoloader.php';
 $autoloader = Zend_Loader_Autoloader::getInstance();
 
-require_once 'selenium/BaseSelenium.php';
-
 /**
  * Base Controller Test Class
  *
@@ -58,8 +56,4 @@ abstract class BaseTestCase extends Zend_Test_PHPUnit_ControllerTestCase {
         $this->_em = EntityManager::create($this->appConfig->doctrine->connection->toArray(), $config);
     }
     
-    protected function mainNavigationCheck() {
-        $this->assertQueryCountMax('ul#navigation', 1);
-        $this->assertQueryCountMin('ul#navigation li', 2);
-    }
 }

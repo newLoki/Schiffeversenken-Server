@@ -1,0 +1,4 @@
+#Installation
+##Database
+Insert your connection information into _application/configs/application.ini_.
+After this, setup your Database by executing sql scripts located in _data/sql_.
