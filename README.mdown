@@ -3,15 +3,15 @@
 ## Application
 Checkout into _htdocs_ folder
 ` git clone git://github.com/newLoki/Schiffeversenken-Server.git /path/to/htdocs/schiffeversenken-server`
-now you can access the site by typing *http://<servername>/schiffeversenken-server* into your webbroser.
+now you can access the site by typing *http://<servername>/schiffeversenken-server* into your webbroser.  
 For <servername> you can use localhost, if you have run a development server on your local machine.
 
 
 ##Database
 Insert your connection information into _application/configs/application.ini_.
 After this, setup your Database by creating a new database (all <____> are Placeholders):
-`mysql -u <UserName> -p <Password> | CREATE DATABASE ``ships``;`
-and then pipe all  sql scripts located in _data/sql_ into this new database by typing
+`mysql -u <UserName> -p <Password> | CREATE DATABASE ``ships`;`
+and then pipe all  sql scripts located in _data/sql_ into this new database by typing:
 `mysql -u <UserName> -p <Password> < <ScriptName>`
 You can also use tools like [PhpMyAdmin](http://www.phpmyadmin.net/home_page/index.php) or
 [MySQL Workbench](http://www.mysql.de/products/workbench/)
