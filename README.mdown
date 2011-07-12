@@ -2,3 +2,16 @@
 ##Database
 Insert your connection information into _application/configs/application.ini_.
 After this, setup your Database by executing sql scripts located in _data/sql_.
+
+
+#ToDo:
+* Implement ACL
+* Implement Model & Entities for:
+** scores
+** userscores
+* Implement controller to show score list (as index)
+* Implement view for scores as list
+* Implement controller to show user scores
+* Implement view to show all scores for one user
+* Implement action & model to remove score from user scores
+
