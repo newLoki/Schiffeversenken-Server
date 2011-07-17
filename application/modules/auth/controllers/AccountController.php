@@ -61,6 +61,28 @@ class Auth_AccountController extends Auth_BaseController
         
     }
 
+    public function accountAction()
+    {
+        $accountId = $this->getRequest()->getParam('id', null);
+        if(null != $accountId) {
+            //get user
+            $accountRepo = $this->_em->getRepository('Custom_Entity_Account');
+
+            /** @var $account Custom_Entity_Account*/
+            $account = $accountRepo->findOneById($accountId);
+            $this->view->account = array(
+                'id' => $account->getId(),
+                'name' => $account->getName(),
+                'created_at' => $account->getCreated_at()->format('d.m.Y H:M:s'),
+            );
+
+            //put user scores into view var
+
+        } else {
+            throw new Zend_Exception('No id where given');
+        }
+    }
+
     /**
      * history method
      *

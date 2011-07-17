@@ -19,11 +19,11 @@ echo $this->table()->startTable($titles, $table);
 $createdRows = array();
 foreach($this->tableContent as $row) {
     $id = $row['id'];
-    $created_at = $row['created_at']->format('Y-m-d H:M:s');
+    $created_at = $row['created_at']->format('d.m.Y H:M:s');
     $changed_at = $created_at;
 
     if(!empty($row['changed_at'])) {
-        $changed_at = $row['changed_at']->format('Y-m-d H:M:s');
+        $changed_at = $row['changed_at']->format('d.m.Y H:M:s');
     }
 
     $createdRows[] = array(
