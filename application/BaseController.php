@@ -13,6 +13,27 @@ abstract class Application_BaseController extends Zend_Controller_Action
 {
 
     /**
+     * Registry
+     *
+     * @var Zend_Registry
+     */
+    protected $_registry;
+
+    /**
+     * Entity Managager object
+     *
+     * @var \Doctrine\ORM\EntityManager
+     */
+    protected $_em;
+
+    /**
+     * Instance of logger
+     *
+     * @var Zend_Log
+     */
+    protected $_logger;
+
+    /**
      * Flash messenger object helper
      *
      * @author          Eddie Jaoude
