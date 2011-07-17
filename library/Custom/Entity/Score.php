@@ -21,7 +21,7 @@ class Custom_Entity_Score
      * score)
      *
      * @ManyToOne(targetEntity="Custom_Entity_Account", fetch="LAZY", inversedBy="scores")
-     * @JoinColumn(name="created_by" referencedColumnName="id", nullable=false)
+     * @JoinColumn(name="created_by", referencedColumnName="id", nullable=false)
      *
      * @var Custom_Entity_Account $created_by
      */
