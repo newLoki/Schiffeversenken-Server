@@ -32,7 +32,7 @@ class Custom_Entity_Account {
     
     /**
      * @var string $created_at
-     * @Column(type="string")
+     * @Column(type="datetime")
      */
     private $created_at;
 
@@ -113,7 +113,7 @@ class Custom_Entity_Account {
     /**
      * Set created_at
      *
-     * @param string $created_at
+     * @param \datetime $created_at
      */
     public function setCreated_at($created_at)
     {
@@ -123,7 +123,7 @@ class Custom_Entity_Account {
     /**
      * Get created_at
      *
-     * @return string $created_at
+     * @return \datetime $created_at
      */
     public function getCreated_at()
     {
