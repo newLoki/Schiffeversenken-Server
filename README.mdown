@@ -20,8 +20,8 @@ You can also use tools like [PhpMyAdmin](http://www.phpmyadmin.net/home_page/ind
 #ToDo:
 * Implement ACL
 * Implement Model & Entities for:
-+ scores
-+ userscores
++ scores (in progress - newLoki)
++ userscores (in progress - newLoki)
 * Implement controller to show score list (as index)
 * Implement view for scores as list
 * Implement controller to show user scores
