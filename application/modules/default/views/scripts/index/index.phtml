@@ -6,50 +6,48 @@
 
 <?php
 $titles = array(
-            array('value' => 'Column 1'),
-            array('value' => 'Column 2'),
-            array('value' => 'Column 3'),
+            array('value' => 'Points'),
+            array('value' => 'Reached at'),
+            array('value' => 'Last reached at'),
+            array('value' => 'First player who reached'),
         );
 $table = array(
             'id' => 'id_table_1',
             'class' => 'class_table_1 data'
         );
 echo $this->table()->startTable($titles, $table);
-$row = array(
-    array(
+$createdRows = array();
+foreach($this->tableContent as $row) {
+    $id = $row['id'];
+    $created_at = $row['created_at']->format('Y-m-d H:M:s');
+    $changed_at = $created_at;
+
+    if(!empty($row['changed_at'])) {
+        $changed_at = $row['changed_at']->format('Y-m-d H:M:s');
+    }
+
+    $createdRows[] = array(
         array(
-            'id' => 'id_row_1a',
+            'id'    => 'id_' . $id . '_score',
             'class' => 'class_row_1a',
-            'value' => 'aaa111'
+            'value' => $row['score'],
         ),
         array(
-            'id' => 'id_row_1b',
+            'id'    => 'id_' . $id . '_created_at',
             'class' => 'class_row_1b',
-            'value' => 'aaa222'
+            'value' => $created_at
         ),
         array(
-            'id' => 'id_row_1c',
-            'class' => 'class_row_1c',
-            'value' => 'aaa333'
-        )
-    ),
-    array(
+            'id'    => 'id_' . $id . '_changed_at',
+            'class' => 'class_row_1b',
+            'value' => $changed_at
+        ),
         array(
-                'id' => 'id_row_2a',
-                'class' => 'class_row_2a',
-                'value' => 'bbb111'
-            ),
-            array(
-                'id' => 'id_row_2b',
-                'class' => 'class_row_2b',
-                'value' => 'bbb222'
-            ),
-            array(
-                'id' => 'id_row_2c',
-                'class' => 'class_row_2c',
-                'value' => 'bbb333'
-            )
+            'id' => 'id_' . $id . '_created_by',
+            'class' => 'class_row_1c',
+            'value' => $row['created_by'] //@todo make a link to the player profile
         )
-);
-echo $this->table()->addRow($row);
+    );    
+}
+echo $this->table()->addRow($createdRows);
 echo $this->table()->endTable();
