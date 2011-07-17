@@ -71,7 +71,7 @@ class Auth_AccountController extends Auth_BaseController
      */
     public function eventAction() {
         # get account events
-        $events = $this->_em->getRepository('Auth_Model_AccountEvent')->findBy(array('account_id' => Zend_Auth::getInstance()->getIdentity()->getId()));
+        $events = $this->_em->getRepository('Custom_Entity_AccountEvent')->findBy(array('account_id' => Zend_Auth::getInstance()->getIdentity()->getId()));
 
         # send to view
         $this->view->events = $events;

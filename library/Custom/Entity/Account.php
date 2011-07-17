@@ -3,7 +3,7 @@
  * @Table(name="accounts")
  * @Entity(repositoryClass="Auth_Model_AccountRepository")
  */
-class Auth_Model_Account {
+class Custom_Entity_Account {
 
     /**
      * @var integer $id

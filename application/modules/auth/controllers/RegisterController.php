@@ -96,10 +96,10 @@ class Auth_RegisterController extends Auth_BaseController
             $data = $this->_request->getPost();
             if ($form->isValid($data)) {
                 # check for existing email
-                $accountExist = $this->_em->getRepository('Auth_Model_Account')->findBy(array('email' => (string) $data['email']));
+                $accountExist = $this->_em->getRepository('Custom_Entity_Account')->findBy(array('email' => (string) $data['email']));
                 if (count($accountExist) == 0) {
                     # register account
-                    $account = new Auth_Model_Account;
+                    $account = new Custom_Entity_Account;
                     $account->setName($data['name']);
                     $account->setEmail($data['email']);
                     $account->setPassword($data['password'], $this->_registry->config->auth->hash);

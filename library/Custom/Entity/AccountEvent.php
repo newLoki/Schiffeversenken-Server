@@ -3,7 +3,7 @@
  * @Table(name="account_events")
  * @Entity(repositoryClass="Auth_Model_AccountEventRepository")
  */
-class Auth_Model_AccountEvent {
+class Custom_Entity_AccountEvent {
 
     /**
      * @var integer $id

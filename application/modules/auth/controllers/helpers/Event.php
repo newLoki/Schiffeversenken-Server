@@ -34,7 +34,7 @@ class Auth_Controller_Helper_Event extends Zend_Controller_Action_Helper_Abstrac
      *
      */
     public function record($event, $user_id, $em = null) {
-        $account_event = new Auth_Model_AccountEvent;
+        $account_event = new Custom_Entity_AccountEvent;
         $account_event->setAccount_id($user_id);
         $account_event->setEvent($event);
         $date = new Zend_Date;

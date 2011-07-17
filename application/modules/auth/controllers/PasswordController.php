@@ -94,10 +94,10 @@ class Auth_PasswordController extends Auth_BaseController {
             # check validate form
             if ($form->isValid($data)) {
                 # attempt to resend password
-                $user = $this->_em->getRepository('Auth_Model_Account')->findOneBy(array('email' => (string) $data['email']));
+                $user = $this->_em->getRepository('Custom_Entity_Account')->findOneBy(array('email' => (string) $data['email']));
 
                 if (count($user) === 1) {
-                    $password = $this->_em->getRepository('Auth_Model_Account')->generatePassword($this->_registry->config->auth->password->length);
+                    $password = $this->_em->getRepository('Custom_Entity_Account')->generatePassword($this->_registry->config->auth->password->length);
 
                     $user->setPassword($password, $this->_registry->config->auth->hash);
                     $this->_em->flush();
@@ -147,7 +147,7 @@ class Auth_PasswordController extends Auth_BaseController {
             # check validate form
             if ($form->isValid($data)) {
                 # attempt update the password
-                $user = $this->_em->getRepository('Auth_Model_Account')->findOneBy(array('id' => Zend_Auth::getInstance()->getIdentity()->getId()));
+                $user = $this->_em->getRepository('Custom_Entity_Account')->findOneBy(array('id' => Zend_Auth::getInstance()->getIdentity()->getId()));
 
                 // @Todo Create one function where we can generate the correct hash
                 if (count($user) === 1 && hash('SHA256', $this->_registry->config->auth->hash . $data['currentPassword']) == $user->getPassword()) { //User exists and posted current password matches the saved password
