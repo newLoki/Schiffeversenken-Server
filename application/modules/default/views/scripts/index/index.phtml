@@ -26,6 +26,13 @@ foreach($this->tableContent as $row) {
         $changed_at = $row['changed_at']->format('d.m.Y H:M:s');
     }
 
+    $profileUrl = $this->url(array(
+                     'module'       => 'auth',
+                     'controller'   => 'account',
+                     'action'       => 'profile',
+                     'id'           => $row['created_by']['id']
+                ));
+
     $createdRows[] = array(
         array(
             'id'    => 'id_' . $id . '_score',
@@ -45,7 +52,7 @@ foreach($this->tableContent as $row) {
         array(
             'id' => 'id_' . $id . '_created_by',
             'class' => 'class_row_1c',
-            'value' => $row['created_by'] //@todo make a link to the player profile
+            'value' => '<a href="' . $profileUrl . '">' . $row['created_by']['name'] . '</a>'
         )
     );    
 }
