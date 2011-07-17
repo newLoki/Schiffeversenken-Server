@@ -61,7 +61,7 @@ class Auth_AccountController extends Auth_BaseController
         
     }
 
-    public function accountAction()
+    public function profileAction()
     {
         $accountId = $this->getRequest()->getParam('id', null);
         if(null != $accountId) {
