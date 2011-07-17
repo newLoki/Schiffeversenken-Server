@@ -1,7 +1,7 @@
 <?php
 /**
  * @Table(name="accounts")
- * @Entity(repositoryClass="Auth_Model_AccountRepository")
+ * @Entity(repositoryClass="Custom_Repository_AccountRepository")
  */
 class Custom_Entity_Account {
 

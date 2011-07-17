@@ -9,7 +9,7 @@
  */
 
 use Doctrine\ORM\EntityRepository;
-class Auth_Model_AccountRepository extends EntityRepository
+class Custom_Repository_AccountRepository extends EntityRepository
 {
     /**
      * Authenticate user

@@ -9,7 +9,7 @@
  */
 
 use Doctrine\ORM\EntityRepository;
-class Auth_Model_AccountEventRepository extends EntityRepository
+class Custom_Repository_AccountEventRepository extends EntityRepository
 {
   
 }
