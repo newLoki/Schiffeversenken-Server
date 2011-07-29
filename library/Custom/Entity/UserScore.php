@@ -104,15 +104,15 @@ class Custom_Entity_UserScore
     }
 
     /**
-     * @param int $score
+     * @param \Custom_Entity_Score $score
      */
-    public function setScore($score)
+    public function setScore(Custom_Entity_Score $score)
     {
         $this->score = $score;
     }
 
     /**
-     * @return int
+     * @return \Custom_Entity_Score
      */
     public function getScore()
     {
