@@ -23,6 +23,7 @@ You can also use tools like [PhpMyAdmin](http://www.phpmyadmin.net/home_page/ind
 + scores (in progress - newLoki)
 + userscores (in progress - newLoki)
 + best userscores (using join to get the best)
++ move table view helper into library to enable access from each view
 * Implement controller to show score list (as index)
 * Implement view for scores as list
 * Implement controller to show user scores
