@@ -35,6 +35,9 @@ account controller)
 + Plane interfaces for using this score server with "Schiffeversenken" client
 + Generate WSDL
 + Implement service methods (not specified yet)
+* Profile images
++ Entity
++ add to profile view
 
 #Done
 * Implement view for scores as list -> done (in index view)
