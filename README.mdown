@@ -26,7 +26,6 @@ You can also use tools like [PhpMyAdmin](http://www.phpmyadmin.net/home_page/ind
 + move table view helper into library to enable access from each view
 * Implement controller to show score list (as index) -> done, implemented in
 index controller
-* Implement view for scores as list -> done (in index view)
 * Implement controller to show user scores -> in progress (in profile action in
 account controller)
 * Implement view to show all scores for one user -> in progress (in profile view)
@@ -37,3 +36,5 @@ account controller)
 + Generate WSDL
 + Implement service methods (not specified yet)
 
+#Done
+* Implement view for scores as list -> done (in index view)
