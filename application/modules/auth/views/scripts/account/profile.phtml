@@ -1,3 +1,28 @@
 <br />
 <h2><?php echo $this->account['name'] ?></h2>
 <i>(since <?php echo $this->account['created_at']?>)</i>
+<br />
+<br />
+<?php //@todo use table helper if it is availeable ?>
+<table id="newest_scores" class="class_table_1 data">
+    <thead>
+    <tr>
+        <td id="newest_score_head">Points</td>
+        <td id="newest_created_head">Reached at</td>
+        <td id="newest_changed_head">Last reached at</td>
+    </tr>
+    </thead>
+    <?php foreach($this->scores->newest as $newScore): ?>
+        <tr id="newest_ <?php echo $newScore['id']; ?>">
+            <td id="newest_score_<?php echo $newScore['id']; ?>">
+                <?php echo $newScore['score']?>
+            </td>
+            <td id="newest_created_<?php echo $newScore['id']; ?>">
+                <?php echo $newScore['created_at']->format('d.m.Y H:m:s'); ?>
+            </td>
+            <td id="newest_changed_<?php echo $newScore['id']; ?>">
+                <?php echo $newScore['changed_at']->format('d.m.Y H:m:s'); ?>
+            </td>
+        </tr>
+    <?php endforeach; ?>
+</table>
