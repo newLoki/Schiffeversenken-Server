@@ -22,6 +22,7 @@ You can also use tools like [PhpMyAdmin](http://www.phpmyadmin.net/home_page/ind
 * Implement Model & Entities for:
 + scores (in progress - newLoki)
 + userscores (in progress - newLoki)
++ best userscores (using join to get the best)
 * Implement controller to show score list (as index)
 * Implement view for scores as list
 * Implement controller to show user scores
