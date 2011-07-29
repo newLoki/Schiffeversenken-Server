@@ -33,13 +33,11 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap {
      */
     protected function _initDoctitle() {
         $view = new Zend_View($this->getOptions());
-        $view->headTitle('Zend Framework (ZF) & Doctrine2 Skeleton/Baseline');
+        $view->headTitle('Ships');
     }
 
     /**
      * Default  View helpers
-     *
-     * @TODO: This needs to be updated to be dynamic for current module or moved to each module
      *
      * @author          Eddie Jaoude
      * @param           void
@@ -48,8 +46,13 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap {
      */
     protected function _initDefaultHelpers() {
         $this->bootstrap('view');
+
+        /** @var $view Zend_View_Abstract */
         $view = $this->getResource('view');
-        $view->addHelperPath( APPLICATION_PATH . '/modules/default/views/helpers', 'Default_View_Helper');
+        $view->addHelperPath( APPLICATION_PATH .
+                              '/../library/Custom/View/Helpers',
+                              'Custom_View_Helper_');
+                              //'/modules/default/views/helpers', 'Default_View_Helper');
     }
 
     /**
