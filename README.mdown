@@ -22,12 +22,14 @@ You can also use tools like [PhpMyAdmin](http://www.phpmyadmin.net/home_page/ind
 * Implement Model & Entities for:
 + scores (in progress - newLoki)
 + userscores (in progress - newLoki)
-+ best userscores (using join to get the best)
++ best userscores, using join to get the best (in progress)
 + move table view helper into library to enable access from each view
-* Implement controller to show score list (as index)
-* Implement view for scores as list
-* Implement controller to show user scores
-* Implement view to show all scores for one user
+* Implement controller to show score list (as index) -> done, implemented in
+index controller
+* Implement view for scores as list -> done (in index view)
+* Implement controller to show user scores -> in progress (in profile action in
+account controller)
+* Implement view to show all scores for one user -> in progress (in profile view)
 * Implement action & model to remove score from user scores
 * Implement abstract service layer
 * Implement SOAP interface over SSL
