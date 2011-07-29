@@ -74,7 +74,14 @@ class Custom_Repository_ScoreRepository extends EntityRepository
                 )';
 
         $em = $this->getEntityManager();
+        /** @var $query \Doctrine\ORM\Query */
         $query = $em->createQuery($dql);
+        $query->setParameters(
+            array(
+                1 => $_date->format('Y'), //year
+                2 => $_date->format('m'), //month
+                3 => $_date->format('d') //day
+        ));
         $query->setMaxResults((int) $_limit);
 
         /** @var $result Custom_Entity_Score */
