@@ -20,7 +20,8 @@ class Custom_Entity_UserScore
      * Associated account for this score (this is the first one who reach this
      * score)
      *
-     * @ManyToOne(targetEntity="Custom_Entity_Account", fetch="LAZY", inversedBy="user_scores")
+     * @ManyToOne(targetEntity="Custom_Entity_Account", fetch="LAZY",
+     * inversedBy="user_scores")
      * @JoinColumn(name="user_id", referencedColumnName="id", nullable=false)
      *
      * @var Custom_Entity_Account $user
@@ -30,8 +31,11 @@ class Custom_Entity_UserScore
     /**
      * Points
      *
-     * @Column(type="integer", name="score", nullable="false")
-     * @var int
+     * @ManyToOne(targetEntity="Custom_Entity_Score", fetch="LAZY",
+     * inversedBy="user_scores")
+     * @JoinColumn(name="score_id", referencedColumnName="id", nullable="false")
+     *
+     * @var int $score
      */
     private $score;
 
