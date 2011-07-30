@@ -37,6 +37,12 @@ class Custom_Entity_Account {
     private $created_at;
 
     /**
+     * @var string $_image
+     * @Column(type="string")
+     */
+    private $image;
+
+    /**
      * Get id
      *
      * @return integer $id
@@ -128,5 +134,21 @@ class Custom_Entity_Account {
     public function getCreated_at()
     {
         return $this->created_at;
+    }
+
+    /**
+     * @param string $image
+     */
+    public function setImage($image)
+    {
+        $this->image = $image;
+    }
+
+    /**
+     * @return string
+     */
+    public function getImage()
+    {
+        return $this->image;
     }
 }
