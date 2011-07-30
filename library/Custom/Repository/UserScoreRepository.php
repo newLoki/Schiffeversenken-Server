@@ -43,9 +43,20 @@ class Custom_Repository_UserScoreRepository extends EntityRepository
      */
     public function getBestScores(Custom_Entity_Account $_user, $_limit = 10)
     {
-        /*
-         * @todo use an inner join statement to get all related score entries
-         * and how big they are
-         */
+        $dql = 'SELECT s
+                FROM Custom_Entity_UserScore s
+                WHERE s.user = ?1
+                ORDER BY s.score DESC';
+
+        $em = $this->getEntityManager();
+        /* @var $query \Doctrine\ORM\Query */
+        $query = $em->createQuery($dql);
+        $query->setParameter(1, $_user);
+        $query->setMaxResults((int) $_limit);
+
+        /** @var $result Custom_Entity_UserScore */
+        $results = $query->getResult();
+
+        return $results;
     }
 }
