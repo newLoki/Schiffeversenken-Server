@@ -15,7 +15,9 @@ $table = array(
         );
 echo $this->table()->startTable($titles, $table);
 $createdRows = array();
-foreach($this->scores->newest as $row) {
+foreach($this->scores[
+            Custom_Models_Account_Account::USER_SCORE_NEWEST
+                    ] as $row) {
     $id = $row['id'];
     $created_at = $row['created_at']->format('d.m.Y H:m:s');
     $changed_at = $created_at;

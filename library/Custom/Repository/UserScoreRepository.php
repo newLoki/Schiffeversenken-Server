@@ -36,6 +36,7 @@ class Custom_Repository_UserScoreRepository extends EntityRepository
 
     /**
      * Get the best scores for given user, limited by given limit (default is 10)
+     * @todo bring it to work
      *
      * @param Custom_Entity_Account $_user
      * @param int $_limit

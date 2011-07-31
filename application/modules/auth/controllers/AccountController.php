@@ -83,23 +83,10 @@ class Auth_AccountController extends Auth_BaseController
             );
 
             //put user scores into view var
-            /** @var $scoreRepo \Custom_Repository_UserScoreRepository */
-            $scoreRepo = $this->_em->getRepository('Custom_Entity_UserScore');
-            $newestScores = $scoreRepo->getNewestScores($account);
-            $this->view->scores = new stdClass();
-            $this->view->scores->newest = array();
-            $this->view->scores->best = array();
+            $accountModel = new Custom_Models_Account_Account($account,
+                                                            $this->_em);
+            $this->view->scores = $accountModel->getAllUserScores();
 
-            /** @var $newScore \Custom_Entity_UserScore */
-            foreach($newestScores as $newScore) {
-                $newestScore = array(
-                    'id' => $newScore->getId(),
-                    'score' => $newScore->getScore()->getScore(),
-                    'created_at' => $newScore->getCreatedAt(),
-                    'changed_at' => $newScore->getChangedAt()
-                );
-                $this->view->scores->newest[] = $newestScore;
-            }
         } else {
             throw new Zend_Exception('No id where given');
         }
@@ -120,7 +107,4 @@ class Auth_AccountController extends Auth_BaseController
         # send to view
         $this->view->events = $events;
     }
-    
-
-
 }
