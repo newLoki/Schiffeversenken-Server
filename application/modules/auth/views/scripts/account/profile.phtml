@@ -2,47 +2,55 @@
 <h2><?php echo $this->account['name'] ?></h2>
 <i>(since <?php echo $this->account['created_at']?>)</i>
 <br />
+<img src="<?php echo $this->account['image']?>"
+     width="<?php echo Custom_Models_Account_Account::USER_IMAGE_SIZE_X; ?>"
+     height="<?php echo Custom_Models_Account_Account::USER_IMAGE_SIZE_Y; ?>"
+/>
 <br />
 <?php
-$titles = array(
-            array('value' => 'Points'),
-            array('value' => 'Reached at'),
-            array('value' => 'Last reached at'),
-        );
-$table = array(
-            'id' => 'newest_scores',
-            'class' => 'class_table_1 data'
-        );
-echo $this->table()->startTable($titles, $table);
-$createdRows = array();
-foreach($this->scores[
-            Custom_Models_Account_Account::USER_SCORE_NEWEST
-                    ] as $row) {
-    $id = $row['id'];
-    $created_at = $row['created_at']->format('d.m.Y H:m:s');
-    $changed_at = $created_at;
+if(!empty($this->scores[Custom_Models_Account_Account::USER_SCORE_NEWEST])) {
+    $titles = array(
+                array('value' => 'Points'),
+                array('value' => 'Reached at'),
+                array('value' => 'Last reached at'),
+            );
+    $table = array(
+                'id' => 'newest_scores',
+                'class' => 'class_table_1 data'
+            );
+    echo $this->table()->startTable($titles, $table);
+    $createdRows = array();
+    foreach($this->scores[
+                Custom_Models_Account_Account::USER_SCORE_NEWEST
+                        ] as $row) {
+        $id = $row['id'];
+        $created_at = $row['created_at']->format('d.m.Y H:m:s');
+        $changed_at = $created_at;
 
-    if(!empty($row['changed_at'])) {
-        $changed_at = $row['changed_at']->format('d.m.Y H:m:s');
+        if(!empty($row['changed_at'])) {
+            $changed_at = $row['changed_at']->format('d.m.Y H:m:s');
+        }
+
+        $createdRows[] = array(
+            array(
+                'id'    => 'id_' . $id . '_score',
+                'class' => 'class_row_1a',
+                'value' => $row['score'],
+            ),
+            array(
+                'id'    => 'id_' . $id . '_created_at',
+                'class' => 'class_row_1b',
+                'value' => $created_at
+            ),
+            array(
+                'id'    => 'id_' . $id . '_changed_at',
+                'class' => 'class_row_1b',
+                'value' => $changed_at
+            )
+        );
     }
-
-    $createdRows[] = array(
-        array(
-            'id'    => 'id_' . $id . '_score',
-            'class' => 'class_row_1a',
-            'value' => $row['score'],
-        ),
-        array(
-            'id'    => 'id_' . $id . '_created_at',
-            'class' => 'class_row_1b',
-            'value' => $created_at
-        ),
-        array(
-            'id'    => 'id_' . $id . '_changed_at',
-            'class' => 'class_row_1b',
-            'value' => $changed_at
-        )
-    );
+    echo $this->table()->addRow($createdRows);
+    echo $this->table()->endTable();
+} else {
+    echo "<b>There are no scores for this user yet</b>";
 }
-echo $this->table()->addRow($createdRows);
-echo $this->table()->endTable();
