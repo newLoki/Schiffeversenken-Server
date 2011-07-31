@@ -69,22 +69,16 @@ class Auth_AccountController extends Auth_BaseController
         // if there is no one logged in, throw a new exception,
         // but this needs a implemented session handling
         if(null != $accountId) {
-
-            //@todo move account formating and scores formating into separate model
             //get user
             $accountRepo = $this->_em->getRepository('Custom_Entity_Account');
 
             /** @var $account Custom_Entity_Account*/
             $account = $accountRepo->findOneById($accountId);
-            $this->view->account = array(
-                'id' => $account->getId(),
-                'name' => $account->getName(),
-                'created_at' => $account->getCreated_at()->format('d.m.Y H:M:s'),
-            );
-
-            //put user scores into view var
             $accountModel = new Custom_Models_Account_Account($account,
                                                             $this->_em);
+            $this->view->account = $accountModel->getAccountInformation();
+
+            //put user scores into view var
             $this->view->scores = $accountModel->getAllUserScores();
 
         } else {

@@ -109,4 +109,21 @@ class Custom_Models_Account_Account
 
         return $scores;
     }
+
+    /**
+     * Formatting account information as array
+     * 
+     * @return array
+     */
+    public function getAccountInformation()
+    {
+        $account = array(
+                'id' => $this->_account->getId(),
+                'name' => $this->_account->getName(),
+                'created_at' => $this->_account->getCreated_at()
+                                        ->format('d.m.Y H:M:s'),
+            );
+
+        return $account;
+    }
 }
