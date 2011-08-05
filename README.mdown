@@ -10,11 +10,17 @@ For <servername> you can use localhost, if you have run a development server on 
 ##Database
 Insert your connection information into _application/configs/application.ini_.
 After this, setup your Database by creating a new database (all <____> are Placeholders):
-`mysql -u <UserName> -p <Password> | CREATE DATABASE ``ships`;`
-and then pipe all  sql scripts located in _data/sql_ into this new database by typing:
-`mysql -u <UserName> -p <Password> < <ScriptName>`
-You can also use tools like [PhpMyAdmin](http://www.phpmyadmin.net/home_page/index.php) or
-[MySQL Workbench](http://www.mysql.de/products/workbench/)
+`mysql -u <UserName> -p <Password> | CREATE DATABASE ``ships`;`.
+Last step is to execute liquibase, our database versioning tool, first time.
+To do this, you have to go to the _build_ folder and execute the following command (<___> are also placeholders):
+`java -jar liquibase.jar --driver=com.mysql.jdbc.Driver \
+     --classpath=databasedriver/mysql-connector-java-5.1.17-bin.jar \
+     --changeLogFile=.../data/sql/changelog.xml \
+     --url="jdbc:mysql://127.0.0.1:<MysqlPort>/ships" \
+     --username=<UserName> \
+     --password=<Password> \
+     migrate`
+
 
 
 #ToDo:
