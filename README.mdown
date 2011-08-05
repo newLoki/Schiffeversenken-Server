@@ -10,7 +10,7 @@ For <servername> you can use localhost, if you have run a development server on 
 ##Database
 Insert your connection information into _application/configs/application.ini_.
 After this, setup your Database by creating a new database (all <____> are Placeholders):
-`mysql -u <UserName> -p <Password> | CREATE DATABASE ``ships`;`.
+`mysql -u <UserName> -p <Password> | CREATE DATABASE ships;`.
 Last step is to execute liquibase, our database versioning tool, first time.
 To do this, you have to go to the _build_ folder and execute the following command (<___> are also placeholders):
 `java -jar liquibase.jar --driver=com.mysql.jdbc.Driver \
