@@ -15,7 +15,7 @@ Last step is to execute liquibase, our database versioning tool, first time.
 To do this, you have to go to the _build_ folder and execute the following command (<___> are also placeholders):
 `java -jar liquibase.jar --driver=com.mysql.jdbc.Driver \
      --classpath=databasedriver/mysql-connector-java-5.1.17-bin.jar \
-     --changeLogFile=.../data/sql/changelog.xml \
+     --changeLogFile=../data/sql/changelog.xml \
      --url="jdbc:mysql://127.0.0.1:<MysqlPort>/ships" \
      --username=<UserName> \
      --password=<Password> \
