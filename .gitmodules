@@ -1,0 +1,3 @@
+[submodule "build/extensions/liquibase"]
+	path = build/extensions/liquibase
+	url = git://github.com/bitExpert/liquibase-phing.git
