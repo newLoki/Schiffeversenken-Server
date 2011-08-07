@@ -25,19 +25,18 @@ class Custom_Repository_AccountRepository extends EntityRepository
         if (empty($hash)) {
             throw new Exception('Hash required to Authenticate');
         }
-        if (empty($data['email']) || empty($data['password'])) {
-            throw new Exception('Email & Password required. You only supplied ' . $data);
+        if (empty($data['nickname']) || empty($data['password'])) {
+            throw new Exception('Email oder Nickname & Password required. You only supplied ' . $data);
         }
 
         # get data
         $result = $this->findOneBy(array(
-                            'email' => (string) $data['email'],
+                            'nickname' => (string) $data['nickname'],
                             'password' => (string) hash('SHA256', $hash . $data['password']) 
                          ));
 
         return $result;
     }
-    
 
     
     /**

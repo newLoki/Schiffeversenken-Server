@@ -13,10 +13,10 @@ class Custom_Entity_Account {
     private $id;
 
     /**
-     * @var string $name
+     * @var string $nickname
      * @Column(type="string")
      */
-    private $name;
+    private $nickname;
     
     /**
      * @var string $email
@@ -37,10 +37,23 @@ class Custom_Entity_Account {
     private $created_at;
 
     /**
-     * @var string $_image
+     * @var string $image
      * @Column(type="string")
      */
     private $image;
+
+    /**
+     * @var string $firstname
+     * @Column(type="string")
+     */
+    private $firstname;
+
+    /**
+     * @var string $lastname
+     * @Column(type="string")
+     */
+    private $lastname;
+
 
     /**
      * Get id
@@ -57,9 +70,9 @@ class Custom_Entity_Account {
      *
      * @param string $name
      */
-    public function setName($name)
+    public function setNickname($name)
     {
-        $this->name = $name;
+        $this->nickname = $name;
     }
 
     /**
@@ -67,9 +80,9 @@ class Custom_Entity_Account {
      *
      * @return string $name
      */
-    public function getName()
+    public function getNickname()
     {
-        return $this->name;
+        return $this->nickname;
     }
     
     /**
@@ -150,5 +163,37 @@ class Custom_Entity_Account {
     public function getImage()
     {
         return $this->image;
+    }
+
+    /**
+     * @param string $firstname
+     */
+    public function setFirstname($firstname)
+    {
+        $this->firstname = $firstname;
+    }
+
+    /**
+     * @return string
+     */
+    public function getFirstname()
+    {
+        return $this->firstname;
+    }
+
+    /**
+     * @param string $lastname
+     */
+    public function setLastname($lastname)
+    {
+        $this->lastname = $lastname;
+    }
+
+    /**
+     * @return string
+     */
+    public function getLastname()
+    {
+        return $this->lastname;
     }
 }

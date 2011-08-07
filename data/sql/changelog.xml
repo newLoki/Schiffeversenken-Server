@@ -81,7 +81,7 @@
     </changeSet>
 
     <changeSet author="newloki" id="8">
-    <addForeignKeyConstraint baseTableName="scores" constraintName="fk_created_by_account" baseColumnNames="created_by" referencedTableName="accounts" referencedColumnNames="id" onDelete="CASCADE" onUpdate="CASCADE"/>
+        <addForeignKeyConstraint baseTableName="scores" constraintName="fk_created_by_account" baseColumnNames="created_by" referencedTableName="accounts" referencedColumnNames="id" onDelete="CASCADE" onUpdate="CASCADE"/>
     </changeSet>
 
     <changeSet author="newloki" id="9">
@@ -125,5 +125,19 @@
             INSERT INTO `scores` (`id`, `created_by`, `score`, `created_at`, `changed_at`)
             VALUES (3, 1, 666, NOW(), NOW());
         </sql>
+    </changeSet>
+
+    <changeSet author="newloki" id="15">
+        <addColumn tableName="accounts">
+            <column name="firstname" type="varchar(255)" />
+        </addColumn>
+        <addColumn tableName="accounts">
+            <column name="lastname" type="varchar(255)" />
+        </addColumn>
+    </changeSet>
+
+    <changeSet author="newloki" id="16">
+        <renameColumn tableName="accounts" oldColumnName="name"
+            newColumnName="nickname" columnDataType="varchar(255)"/>
     </changeSet>
 </databaseChangeLog>

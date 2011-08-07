@@ -104,7 +104,7 @@ class Auth_PasswordController extends Auth_BaseController {
 
                     # send email
                     $emailReset = new Zend_Mail();
-                    $emailReset->addTo($user->getEmail(), $user->getName());
+                    $emailReset->addTo($user->getEmail(), $user->getNickname());
                     $emailReset->setSubject('Password Reset');
                     // @ToDo Create a view file with an email template
                     $emailReset->setBodyText('New Password: ' . $password);

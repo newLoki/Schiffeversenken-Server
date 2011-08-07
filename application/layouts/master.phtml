@@ -27,7 +27,19 @@
             <ul id="navigation">
                 <?php
                 if (Zend_Auth::getInstance()->hasIdentity()) {
-                    echo '<li class="details">Welcome ' . Zend_Auth::getInstance()->getIdentity()->getName() . ' </li>';
+                    /** @var $identity Custom_Entity_Account */
+                    $identity = Zend_Auth::getInstance()->getIdentity();
+                    echo '<li class="details">Welcome '
+                         . '<a href="'
+                         . $this->url(array(
+                                'module'        => 'auth',
+                                'controller'    => 'account',
+                                'action'        => 'profile',
+                                'id'            => $identity->getId()
+                            )) . '">'
+                         . $identity->getNickname() . '</a>'
+
+                    . ' </li>';
                     echo '<li><a href="' . $this->url(array('module' => 'auth', 'controller' => 'account', 'action' => 'event'), null, true) . '">History</a></li>';
                     echo '<li><a href="' . $this->url(array('module' => 'auth', 'controller' => 'password', 'action' => 'update'), null, true) . '">Update Password</a></li>';
                     echo '<li><a href="' . $this->url(array('module' => 'auth', 'controller' => 'logout', 'action' => 'index'), null, true) . '">Logout</a></li>';

@@ -121,7 +121,7 @@ class Custom_Models_Account_Account
     {
         $account = array(
                 'id'         => $this->_account->getId(),
-                'name'       => $this->_account->getName(),
+                'name'       => $this->_account->getNickname(),
                 'created_at' => $this->_account->getCreated_at()
                                         ->format('d.m.Y H:M:s'),
                 'image'      => $this->getProfileImage()
@@ -174,7 +174,7 @@ class Custom_Models_Account_Account
                 . self::USER_IMAGE_DIRECTORY_NAME
                 . DIRECTORY_SEPARATOR;
         if($_accountName) {
-            $basePath .= $this->_account->getName() . DIRECTORY_SEPARATOR;
+            $basePath .= $this->_account->getNickname() . DIRECTORY_SEPARATOR;
         }
 
         return $basePath;

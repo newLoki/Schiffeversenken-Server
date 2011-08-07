@@ -100,11 +100,12 @@ class Auth_RegisterController extends Auth_BaseController
                 if (count($accountExist) == 0) {
                     # register account
                     $account = new Custom_Entity_Account;
-                    $account->setName($data['name']);
+                    $account->setNickname($data['nickname']);
+                    $account->setFirstname($data['firstname']);
+                    $account->setLastname($data['lastname']);
                     $account->setEmail($data['email']);
                     $account->setPassword($data['password'], $this->_registry->config->auth->hash);
-                    $date = new Zend_Date;
-                    $account->setCreated_at($date->toString('YYYY-MM-dd HH:mm:ss'));
+                    $account->setCreated_at(new DateTime());
                     $this->_em->persist($account);
                     $this->_em->flush();
 
