@@ -25,16 +25,6 @@ To do this, you have to go to the _build_ folder and execute the following comma
 
 #ToDo:
 * Implement ACL
-* Implement Model & Entities for:
-+ scores (in progress - newLoki)
-+ userscores (in progress - newLoki)
-+ best userscores, using join to get the best (in progress)
-+ move table view helper into library to enable access from each view
-* Implement controller to show score list (as index) -> done, implemented in
-index controller
-* Implement controller to show user scores -> in progress (in profile action in
-account controller)
-* Implement view to show all scores for one user -> in progress (in profile view)
 * Implement action & model to remove score from user scores
 * Implement abstract service layer
 * Implement SOAP interface over SSL
@@ -42,8 +32,18 @@ account controller)
 + Generate WSDL
 + Implement service methods (not specified yet)
 * Profile images
-+ Entity
 + add to profile view
++ edit ability
 
 #Done
 * Implement view for scores as list -> done (in index view)
+* best userscores, using join to get the best
+* userscores (in progress - newLoki)
+* scores (in progress - newLoki)
+* move table view helper into library to enable access from each view
+* Implement controller to show score list (as index) -> done, implemented in
+index controller
+* Implement controller to show user scores -> in progress (in profile action in
+account controller)
+* Implement view to show all scores for one user -> in progress (in profile view)
+* show profile image

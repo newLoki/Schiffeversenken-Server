@@ -36,7 +36,6 @@ class Custom_Repository_UserScoreRepository extends EntityRepository
 
     /**
      * Get the best scores for given user, limited by given limit (default is 10)
-     * @todo bring it to work
      *
      * @param Custom_Entity_Account $_user
      * @param int $_limit
@@ -46,8 +45,9 @@ class Custom_Repository_UserScoreRepository extends EntityRepository
     {
         $dql = 'SELECT s
                 FROM Custom_Entity_UserScore s
+                JOIN s.score sc
                 WHERE s.user = ?1
-                ORDER BY s.score DESC';
+                ORDER BY sc.score DESC';
 
         $em = $this->getEntityManager();
         /* @var $query \Doctrine\ORM\Query */

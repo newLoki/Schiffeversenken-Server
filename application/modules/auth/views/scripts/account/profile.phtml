@@ -14,16 +14,16 @@ if(!empty($this->scores[Custom_Models_Account_Account::USER_SCORE_NEWEST])) {
                 array('value' => 'Reached at'),
                 array('value' => 'Last reached at'),
             );
-    $table = array(
+    $tableNewest = array(
                 'id' => 'newest_scores',
                 'class' => 'class_table_1 data'
             );
-    echo $this->table()->startTable($titles, $table);
-    $createdRows = array();
+    echo $this->table()->startTable($titles, $tableNewest);
+    $createdRowsNewest = array();
     foreach($this->scores[
                 Custom_Models_Account_Account::USER_SCORE_NEWEST
                         ] as $row) {
-        $id = $row['id'];
+        $id = 'newest_' . $row['id'];
         $created_at = $row['created_at']->format('d.m.Y H:m:s');
         $changed_at = $created_at;
 
@@ -31,7 +31,7 @@ if(!empty($this->scores[Custom_Models_Account_Account::USER_SCORE_NEWEST])) {
             $changed_at = $row['changed_at']->format('d.m.Y H:m:s');
         }
 
-        $createdRows[] = array(
+        $createdRowsNewest[] = array(
             array(
                 'id'    => 'id_' . $id . '_score',
                 'class' => 'class_row_1a',
@@ -49,8 +49,49 @@ if(!empty($this->scores[Custom_Models_Account_Account::USER_SCORE_NEWEST])) {
             )
         );
     }
-    echo $this->table()->addRow($createdRows);
+    echo $this->table()->addRow($createdRowsNewest);
     echo $this->table()->endTable();
+
+
+    //best scores
+    $tableBest = array(
+                'id' => 'best_scores',
+                'class' => 'class_table_1 data'
+            );
+    echo $this->table()->startTable($titles, $tableBest);
+    $createdRowsBest = array();
+    foreach($this->scores[
+                Custom_Models_Account_Account::USER_SCORE_BEST
+                        ] as $row) {
+        $id = 'best_' . $row['id'];
+        $created_at = $row['created_at']->format('d.m.Y H:m:s');
+        $changed_at = $created_at;
+
+        if(!empty($row['changed_at'])) {
+            $changed_at = $row['changed_at']->format('d.m.Y H:m:s');
+        }
+
+        $createdRowsBest[] = array(
+            array(
+                'id'    => 'id_' . $id . '_score',
+                'class' => 'class_row_1a',
+                'value' => $row['score'],
+            ),
+            array(
+                'id'    => 'id_' . $id . '_created_at',
+                'class' => 'class_row_1b',
+                'value' => $created_at
+            ),
+            array(
+                'id'    => 'id_' . $id . '_changed_at',
+                'class' => 'class_row_1b',
+                'value' => $changed_at
+            )
+        );
+    }
+    echo $this->table()->addRow($createdRowsBest);
+    echo $this->table()->endTable();
+
 } else {
     echo "<b>There are no scores for this user yet</b>";
 }

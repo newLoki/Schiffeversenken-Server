@@ -106,10 +106,7 @@ class Custom_Models_Account_Account
     {
         $scores = array(
             self::USER_SCORE_NEWEST => $this->getNewestUserScores($_limit),
-            /*
-             * @todo code below doesn't work, because error in user score repository
-             * self::USER_SCORE_BEST   => $this->getBestUserScores($_limit)
-             */
+            self::USER_SCORE_BEST   => $this->getBestUserScores($_limit)
         );
 
         return $scores;
