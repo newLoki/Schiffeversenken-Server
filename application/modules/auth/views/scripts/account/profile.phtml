@@ -1,12 +1,20 @@
 <br />
-<h2><?php echo $this->account['name'] ?></h2>
+<h2><?php echo $this->account['nickname'] ?></h2>
 <i>(since <?php echo $this->account['created_at']?>)</i>
 <br />
-<img src="<?php echo $this->account['image']?>"
-     width="<?php echo Custom_Models_Account_Account::USER_IMAGE_SIZE_X; ?>"
-     height="<?php echo Custom_Models_Account_Account::USER_IMAGE_SIZE_Y; ?>"
-/>
+<div id="user_image">
+    <img src="<?php echo $this->account['image']?>"
+         width="<?php echo Custom_Models_Account_Account::USER_IMAGE_SIZE_X; ?>"
+         height="<?php echo Custom_Models_Account_Account::USER_IMAGE_SIZE_Y; ?>"
+    />
+</div>
+<div id="user_info">
+    <b>Firstname:</b> <?php echo $this->account['firstname']; ?>
+    <b>Lastname:</b> <?php echo $this->account['lastname']; ?>
+</div>
 <br />
+
+
 <?php
 if(!empty($this->scores[Custom_Models_Account_Account::USER_SCORE_NEWEST])) {
     $titles = array(

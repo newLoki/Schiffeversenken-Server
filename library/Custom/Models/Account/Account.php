@@ -121,7 +121,9 @@ class Custom_Models_Account_Account
     {
         $account = array(
                 'id'         => $this->_account->getId(),
-                'name'       => $this->_account->getNickname(),
+                'nickname'   => $this->_account->getNickname(),
+                'firstname'  => $this->_account->getFirstname(),
+                'lastname'   => $this->_account->getLastname(),
                 'created_at' => $this->_account->getCreated_at()
                                         ->format('d.m.Y H:M:s'),
                 'image'      => $this->getProfileImage()
