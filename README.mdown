@@ -21,6 +21,9 @@ To do this, you have to go to the _build_ folder and execute the following comma
      --password=<Password> \
      migrate`
 
+Every time there is a change on databasescheme it is enought to run the command above,
+but using `update` instead of `migrate`.
+
 
 
 #ToDo:

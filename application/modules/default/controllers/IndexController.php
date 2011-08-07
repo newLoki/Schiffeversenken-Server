@@ -62,7 +62,7 @@ class IndexController extends BaseController
                 'changed_at' => $score->getChangedAt(),
                 'created_by' => array(
                     'id' => $score->getCreatedBy()->getId(),
-                    'name' => $score->getCreatedBy()->getName()
+                    'name' => $score->getCreatedBy()->getNickname()
                 )
             );
         }

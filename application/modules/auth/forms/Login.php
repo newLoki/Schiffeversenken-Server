@@ -34,14 +34,12 @@ class Auth_Form_Login extends Zend_Form
             ->setName('Login');
 
         # Email
-        $email = new Zend_Form_Element_Text('email');
-        $email->setLabel('Email')
+        $nickname = new Zend_Form_Element_Text('nickname');
+        $nickname->setLabel('Nickname')
             ->setRequired(true)
             ->addFilter('StripTags')
             ->addFilter('StringTrim')
-            ->addFilter('StringToLower')
-            ->addValidator('NotEmpty')
-            ->addValidator('EmailAddress');
+            ->addValidator('NotEmpty');
 
         # Password
         $password = new Zend_Form_Element_Password('password');
@@ -55,7 +53,7 @@ class Auth_Form_Login extends Zend_Form
         $submit = new Zend_Form_Element_Submit('login');
 
         # Create
-        $this->addElements(array($email, $password, $submit));
+        $this->addElements(array($nickname, $password, $submit));
     }
 }
 

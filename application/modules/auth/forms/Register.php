@@ -23,8 +23,8 @@ class Auth_Form_Register extends Zend_Form
             ->setName('Register');
 
         # Name	
-        $name = new Zend_Form_Element_Text('name');
-        $name->setLabel('Name')
+        $nickname = new Zend_Form_Element_Text('nickname');
+        $nickname->setLabel('Nickname')
             ->setRequired(true)
             ->addFilter('StripTags')
             ->addFilter('StringTrim')
@@ -48,6 +48,24 @@ class Auth_Form_Register extends Zend_Form
             ->addFilter('StringTrim')
             ->addValidator('NotEmpty');
 
+        # first name
+        $firstname = new Zend_Form_Element_Text('firstname');
+        $firstname->setLabel('Firstname')
+            ->setRequired(true)
+            ->addFilter('StripTags')
+            ->addFilter('StringTrim')
+            ->addValidator('NotEmpty')
+            ->addValidator('Alpha');
+
+        # last name
+        $lastname = new Zend_Form_Element_Text('lastname');
+        $lastname->setLabel('Lastname')
+            ->setRequired(true)
+            ->addFilter('StripTags')
+            ->addFilter('StringTrim')
+            ->addValidator('NotEmpty')
+            ->addValidator('Alpha');
+
         // spam code
         // Using both captcha and captchaOptions:
         $spamcode = new Zend_Form_Element_Captcha('spamcode',
@@ -65,7 +83,15 @@ class Auth_Form_Register extends Zend_Form
         $submit = new Zend_Form_Element_Submit('Register');
 
         # Create
-        $this->addElements(array($name, $email, $password, $spamcode, $submit));
+        $this->addElements(
+            array(
+                 $nickname,
+                 $firstname,
+                 $lastname,
+                 $email,
+                 $password,
+                 $spamcode,
+                 $submit));
     }
 }
 
